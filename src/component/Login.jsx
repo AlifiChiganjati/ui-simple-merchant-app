@@ -10,10 +10,7 @@ const LoginPage = () => {
   });
 
   const [error, setError] = useState("");
-  const [validationErrors, setValidationErrors] = useState({
-    username: "",
-    password: "",
-  });
+  const [validationErrors, setValidationErrors] = useState({});
 
   const handleChange = (e) => {
     setLogin({ ...login, [e.target.name]: e.target.value });
