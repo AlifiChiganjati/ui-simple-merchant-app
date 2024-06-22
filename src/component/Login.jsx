@@ -108,7 +108,7 @@ const LoginPage = () => {
               className="text-sm text-blue-600 hover:underline"
               href={"/register"}
             >
-              Don't have an account?
+              Don&apos;t have an account?
             </a>
           </div>
         </div>
