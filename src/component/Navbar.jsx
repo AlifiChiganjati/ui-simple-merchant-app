@@ -13,6 +13,7 @@ const Navbar = () => {
           <a href="/product">product</a>
         </li>
       </ul>
+      {}
     </div>
   );
 };

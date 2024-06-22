@@ -16,15 +16,19 @@ export const registerUser = async (fullname, email, password) => {
   }
 };
 
-export const loginUser = async (email, password) => {
+export const loginUser = async (username, password) => {
   try {
     const response = await axios.post(`${API_BASE_URL}/user/login`, {
-      email,
+      username,
       password,
     });
-    if (response.data.accessToken) {
-      localStorage.setItem("user", JSON.stringify(response.data));
+    if (response.data.data.token) {
+      // localStorage.setItem("user", JSON.stringify(response.data));
+      const { token, userData } = response.data.data;
+      localStorage.setItem("token", token);
+      localStorage.setItem("userData", JSON.stringify(userData));
     }
+    console.log(response.data);
     return response.data;
   } catch (error) {
     console.error("Login failed:", error);
