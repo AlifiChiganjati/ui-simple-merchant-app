@@ -22,13 +22,9 @@ export const loginUser = async (username, password) => {
       username,
       password,
     });
-    if (response.data.data.token) {
-      // localStorage.setItem("user", JSON.stringify(response.data));
-      const { token, userData } = response.data.data;
-      localStorage.setItem("token", token);
-      localStorage.setItem("userData", JSON.stringify(userData));
+    if (response.data.data) {
+      localStorage.setItem("user", JSON.stringify(response.data.data));
     }
-    console.log(response.data);
     return response.data;
   } catch (error) {
     console.error("Login failed:", error);
@@ -37,6 +33,5 @@ export const loginUser = async (username, password) => {
 };
 
 export const logoutUser = () => {
-  localStorage.removeItem("token");
-  localStorage.removeItem("userData");
+  localStorage.removeItem("user");
 };

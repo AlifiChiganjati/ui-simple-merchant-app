@@ -47,7 +47,7 @@ const LoginPage = () => {
       const response = await loginUser(login.username, login.password);
       console.log("ini response: ", response);
       if (response.status === "success") {
-        navigate("/");
+        navigate("/", { replace: true });
       }
     } catch (error) {
       if (error.response && error.response.status >= 400) {
