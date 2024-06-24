@@ -1,11 +1,18 @@
 import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 import ProductCreateForm from "./FormCreateProduct";
+import { useEffect } from "react";
 
 const MerchantPage = () => {
   const navigate = useNavigate();
   const user = localStorage.getItem("user");
-  const userRole = JSON.parse(user).userData.role;
+  const userRole = user ? JSON.parse(user).userData.role : null;
+
+  useEffect(() => {
+    if (!user) {
+      navigate("/login");
+    }
+  }, [navigate, user]);
 
   return (
     <>
